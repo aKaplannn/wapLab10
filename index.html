@@ -1,2 +1,48 @@
-﻿    <img src="1.jpg" style="width:555px" />
-    <img src="2.jpg" style="width:555px" />
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        // LAB 10 SOLUTION 1
+        //Question 1: Write the necessary Node script to make this code work for all arrays: [1, 2, 3, 4, 5, 6, 7, 8].even(); // [2, 4, 6, 8][1, 2, 3, 4, 5, 6, 7, 8].odd(); // [1,3,5,7] Test your code in Node.JS CLI
+        Array.prototype.even = function () { return this.filter(n => n % 2 == 0); }
+        Array.prototype.odd = function () { return this.filter(n => n % 2 !== 0); }
+        console.log(even = [1, 2, 3, 4, 5, 6, 7, 8].even());        
+        console.log(odd = [1, 2, 3, 4, 5, 6, 7, 8].odd());
+        setTimeout(function () { document.getElementById('one').innerHTML += '<br><br>' + even + '<br>' + odd; }, 111);
+    </script>
+</head>
+<body>
+    <span id="one">
+        <strong>Lab 10 Solution 1</strong><br><br>
+    Array.prototype.even = function () { return this.filter(n => n % 2 == 0); }<br>
+    Array.prototype.odd = function () { return this.filter(n => n % 2 !== 0); }<br>
+    console.log([1, 2, 3, 4, 5, 6, 7, 8].even());<br>
+    console.log([1, 2, 3, 4, 5, 6, 7, 8].odd());
+</span><br><br><br>
+               <span>
+                   <strong>
+                       Lab 10 Solution 2 - 1
+                   </strong>
+                   <br><br>
+                   setTimeout runs in Timer phase, setImmediate runs in check phase. <br>
+                   If there's a case needs to run just before close phase, we can use setImmediate.<br><br><br>
+
+                   <strong>
+                       Lab 10 Solution 2 - 2
+                   </strong><br><br>
+                   Callback of process.nextTick gets executed multiple chances in one iteration, highest priority.<br>
+                   setImmediate only gets executed once in one cycle.<br>
+                   process.nextTick(); all of callbacks in nextTick queue, drain out. <br>
+                   Don't use while true loop on process.nextTick, it blocks event loop. <br>
+                   setImmediate; certain, the remaining for next iteration/tick<br>
+                   process.nextTick; API provided natively by Node.js <br>
+                   setImmediate is provided by libuv.<br><br><br>
+
+                   <strong>
+                       Lab 10 Solution 2 - 3
+                   </strong><br><br>No, Node.js does not have window object.
+               </span>
+</body>
+</html>
